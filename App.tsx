@@ -5,7 +5,8 @@ import {
   StatusBar,
   useColorScheme,
 } from 'react-native';
-import ShareMenu, { ShareReceiveIntent } from "react-native-share-menu";
+// @ts-ignore
+import ShareMenu, {ShareReceiveIntent} from 'react-native-share-menu';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
