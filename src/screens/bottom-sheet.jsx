@@ -48,17 +48,26 @@ const BottomSheet = (props) => {
             backgroundColor: 'gray',
           },
         ]}>
-        <Text style={[styles.title, {color: 'white'}]}>
-          Title: {sharedData.title}
-        </Text>
-        <Text style={[styles.link, {color: 'white'}]}>
-          {sharedData.link}
-        </Text>
-        <TouchableOpacity style={styles.addButton} onPress={toggleBottomSheet}>
-          <Text style={styles.buttonText}>
-            Add Link
+        <View style={styles.linkContainer}>
+          <Text style={[styles.title, {color: 'white'}]}>
+            Title: {sharedData.title}
           </Text>
-        </TouchableOpacity>
+          <Text style={[styles.link, {color: 'white'}]}>
+            {sharedData.link}
+          </Text>
+        </View>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.cancelButton} onPress={toggleBottomSheet}>
+            <Text style={styles.cancelButtonText}>
+              Cancel
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.addButton} onPress={toggleBottomSheet}>
+            <Text style={styles.buttonText}>
+              Add Link
+            </Text>
+          </TouchableOpacity>
+        </View>
       </Animated.View>
     </View>
   );
@@ -77,6 +86,11 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8
   },
+  linkContainer: {
+    flexDirection: "column",
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   title: {
     fontSize: 18,
     marginBottom: 16,
@@ -91,8 +105,26 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '40%',
   },
   buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  cancelButton: {
+    backgroundColor: 'red',
+    padding: 10,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    width: '40%',
+  },
+  cancelButtonText: {
     color: 'white',
     fontSize: 16,
   },

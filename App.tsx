@@ -6,8 +6,8 @@ import {
   useColorScheme,
 } from 'react-native';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+// import {NavigationContainer} from '@react-navigation/native';
+// import {createStackNavigator} from '@react-navigation/stack';
 
 //import {Colors} from 'react-native/Libraries/NewAppScreen';
 import BottomSheet from './src/screens/bottom-sheet';
@@ -21,29 +21,30 @@ function App(): JSX.Element {
     height: height,
   };
 
-  const Stack = createStackNavigator();
+  // const Stack = createStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <SafeAreaView style={backgroundStyle}>
-          <StatusBar
-            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-            backgroundColor="black"
-          />
-          <Stack.Screen
-            name="Home"
-            children={props => (
-              <BottomSheet
-                {...props}
-                isDarkMode={isDarkMode}
-                screenHeight={height}
-              />
-            )}
-          />
-        </SafeAreaView>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor="black"
+      />
+      <BottomSheet isDarkMode={isDarkMode} screenHeight={height} />
+      {/*<NavigationContainer>*/}
+      {/*  <Stack.Navigator initialRouteName="Home">*/}
+      {/*    <Stack.Screen*/}
+      {/*      name="Home"*/}
+      {/*      children={props => (*/}
+      {/*        <BottomSheet*/}
+      {/*          {...props}*/}
+      {/*          isDarkMode={isDarkMode}*/}
+      {/*          screenHeight={height}*/}
+      {/*        />*/}
+      {/*      )}*/}
+      {/*    />*/}
+      {/*  </Stack.Navigator>*/}
+      {/*</NavigationContainer>*/}
+    </SafeAreaView>
   );
 }
 
