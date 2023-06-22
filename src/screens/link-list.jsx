@@ -6,14 +6,34 @@ import {
   StyleSheet,
   FlatList
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LinkList = ({ route, navigation, isDarkMode }) => {
-  const [links, setLinks] = useState([route.params.newLink]);
+  const [links, setLinks] = useState([]);
   const backgroundColor = isDarkMode ? '#333' : '#FFF';
   const textColor = isDarkMode ? '#FFF' : '#333';
 
+  const updateLinkList = async (newLink) => {
+    try {
+      const storedLinks = await AsyncStorage.getItem('links');
+      let parsedLinks = storedLinks ? JSON.parse(storedLinks) : [];
+      const updatedLinks = [...parsedLinks, newLink];
+      await AsyncStorage.setItem('links', JSON.stringify(updatedLinks));
+      setLinks(updatedLinks);
+    } catch (error) {
+      console.error('Error saving links to storage:', error);
+    }
+  }
+
+  React.useEffect(() => {
+    if (route.params?.newLink) {
+      updateLinkList(route.params?.newLink);
+    };
+  }, [route.params?.newLink]);
+
   const handleClearAll = () => {
     setLinks([]);
+    AsyncStorage.removeItem('links');
   };
 
   const handleGoBack = () => {
