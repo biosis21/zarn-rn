@@ -7,6 +7,7 @@ import {
   Animated,
   Button,
 } from "react-native";
+import GlobalStyles from "../styles/global-styles";
 
 const BottomSheet = (props) => {
   const {isDarkMode, navigation, screenHeight } = props;
@@ -56,14 +57,14 @@ const BottomSheet = (props) => {
             {sharedData.link}
           </Text>
         </View>
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.cancelButton} onPress={toggleBottomSheet}>
-            <Text style={styles.cancelButtonText}>
+        <View style={GlobalStyles.buttonsContainer}>
+          <TouchableOpacity style={GlobalStyles.cancelButton} onPress={toggleBottomSheet}>
+            <Text style={GlobalStyles.buttonText}>
               Cancel
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.addButton} onPress={handleAddLink}>
-            <Text style={styles.buttonText}>
+          <TouchableOpacity style={GlobalStyles.okButton} onPress={handleAddLink}>
+            <Text style={GlobalStyles.buttonText}>
               Add Link
             </Text>
           </TouchableOpacity>
@@ -98,35 +99,6 @@ const styles = StyleSheet.create({
   link: {
     fontSize: 16,
     marginBottom: 16,
-  },
-  addButton: {
-    backgroundColor: '#4CAF50',
-    padding: 10,
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '40%',
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  cancelButton: {
-    backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-    width: '40%',
-  },
-  cancelButtonText: {
-    color: 'white',
-    fontSize: 16,
   },
 });
 

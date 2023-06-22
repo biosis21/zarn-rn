@@ -7,6 +7,7 @@ import {
   FlatList
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import GlobalStyles from "../styles/global-styles";
 
 const LinkList = ({ route, navigation, isDarkMode }) => {
   const [links, setLinks] = useState([]);
@@ -52,12 +53,14 @@ const LinkList = ({ route, navigation, isDarkMode }) => {
           </View>
         )}
       />
-      <TouchableOpacity style={styles.clearButton} onPress={handleClearAll}>
-        <Text style={styles.buttonText}>Clear All</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-        <Text style={styles.buttonText}>Back</Text>
-      </TouchableOpacity>
+      <View style={GlobalStyles.buttonsContainer}>
+          <TouchableOpacity style={GlobalStyles.cancelButton} onPress={handleClearAll}>
+            <Text style={GlobalStyles.buttonText}>Clear All</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={GlobalStyles.okButton} onPress={handleGoBack}>
+            <Text style={GlobalStyles.buttonText}>Back</Text>
+          </TouchableOpacity>
+        </View>
     </View>
   );
 };
@@ -74,24 +77,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   link: {
-    fontSize: 16,
-  },
-  clearButton: {
-    backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 8,
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  backButton: {
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 8,
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  buttonText: {
-    color: 'white',
     fontSize: 16,
   },
 });
