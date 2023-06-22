@@ -11,6 +11,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 //import {Colors} from 'react-native/Libraries/NewAppScreen';
 import BottomSheet from './src/screens/bottom-sheet';
+import LinkList from './src/screens/link-list';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -41,6 +42,11 @@ const App = () => {
                 screenHeight={height}
               />
             )}
+          />
+          <Stack.Screen
+            name="Links"
+            options={{headerShown: false}}
+            children={props => <LinkList {...props} isDarkMode={isDarkMode} />}
           />
         </Stack.Navigator>
       </NavigationContainer>

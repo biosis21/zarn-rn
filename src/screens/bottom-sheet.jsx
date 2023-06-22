@@ -28,10 +28,10 @@ const BottomSheet = (props) => {
     setBottomSheetVisible(!isBottomSheetVisible);
   };
 
-  // const handleAddLink = () => {
-  //   navigation.navigate('Links', {newLink: sharedData});
-  //   toggleBottomSheet();
-  // };
+  const handleAddLink = () => {
+    navigation.navigate('Links', {newLink: sharedData});
+    toggleBottomSheet();
+  };
 
   // const backgroundColor = isDarkMode ? '#333' : '#FFF';
   // const textColor = isDarkMode ? '#FFF' : '#333';
@@ -62,7 +62,7 @@ const BottomSheet = (props) => {
               Cancel
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.addButton} onPress={toggleBottomSheet}>
+          <TouchableOpacity style={styles.addButton} onPress={handleAddLink}>
             <Text style={styles.buttonText}>
               Add Link
             </Text>
