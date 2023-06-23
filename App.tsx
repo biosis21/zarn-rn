@@ -1,8 +1,11 @@
 import React from 'react';
 import {
   Dimensions,
+  Image,
   SafeAreaView,
   StatusBar,
+  StyleSheet,
+  Text,
   useColorScheme,
 } from 'react-native';
 
@@ -24,12 +27,17 @@ import GlobalStyles from './src/styles/global-styles';
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const height = Dimensions.get('window').height;
+  const [sharedData, setSharedData] = React.useState('');
+  const [sharedMimeType, setSharedMimeType] = React.useState('');
+  const [sharedExtraData, setSharedExtraData] = React.useState(null);
 
   const handleShare = React.useCallback((item?: any) => {
-    // if (!item) return;
-    // const { mimeType, data, extraData } = item;
-    // console.log('data: ', data);
     console.log('item: ', item);
+    const {mimeType, data, extraData} = item;
+
+    setSharedData(data);
+    setSharedExtraData(extraData);
+    setSharedMimeType(mimeType);
   }, []);
 
   React.useEffect(() => {
@@ -54,6 +62,28 @@ const App = () => {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor="black"
       />
+      <Text style={styles.welcome}>React Native Share Menu</Text>
+      <Text style={styles.instructions}>Shared type: {sharedMimeType}</Text>
+      <Text style={styles.instructions}>
+        Shared text: {sharedMimeType === 'text/plain' ? sharedData : ''}
+      </Text>
+      <Text style={styles.instructions}>Shared image:</Text>
+      {sharedMimeType.startsWith('image/') && (
+        <Image
+          style={styles.image}
+          source={{uri: sharedData}}
+          resizeMode="contain"
+        />
+      )}
+      <Text style={styles.instructions}>
+        Shared file:{' '}
+        {sharedMimeType !== 'text/plain' && !sharedMimeType.startsWith('image/')
+          ? sharedData
+          : ''}
+      </Text>
+      <Text style={styles.instructions}>
+        Extra data: {sharedExtraData ? JSON.stringify(sharedExtraData) : ''}
+      </Text>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
@@ -77,5 +107,28 @@ const App = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  image: {
+    width: '100%',
+    height: 200,
+  },
+});
 
 export default App;
