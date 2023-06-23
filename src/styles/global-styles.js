@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 const GlobalStyles = StyleSheet.create({
+  appStyle: {
+    // backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  },
   okButton: {
     backgroundColor: '#4CAF50',
     padding: 10,
