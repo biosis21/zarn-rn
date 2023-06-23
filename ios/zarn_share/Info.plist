@@ -5,7 +5,7 @@
 	<key>HostAppBundleIdentifier</key>
 	<string>org.reactjs.native.example.zarn</string>
 	<key>HostAppURLScheme</key>
-	<string>zarn_share://</string>
+	<string>zarnShare://</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
@@ -29,19 +29,18 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
 	</dict>
-		<key>NSAppTransportSecurity</key>
-    	<dict>
-    		<key>NSAllowsArbitraryLoads</key>
-    		<true/>
-    		<key>NSExceptionDomains</key>
-    		<dict>
-    			<key>localhost</key>
-    			<dict>
-    				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-    				<true/>
-    			</dict>
-    		</dict>
-    	</dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>
-
