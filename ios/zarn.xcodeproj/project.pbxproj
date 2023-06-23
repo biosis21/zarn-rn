@@ -648,6 +648,7 @@
 				DEVELOPMENT_TEAM = F32C86TQJW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = zarn/Info.plist;
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -677,6 +678,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F32C86TQJW;
 				INFOPLIST_FILE = zarn/Info.plist;
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
