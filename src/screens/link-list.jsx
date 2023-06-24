@@ -4,8 +4,8 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  FlatList
-} from 'react-native';
+  FlatList, ScrollView,
+} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalStyles from "../styles/global-styles";
 import RNBootSplash from "react-native-bootsplash";
@@ -13,18 +13,18 @@ import RNBootSplash from "react-native-bootsplash";
 const LinkList = (props) => {
   const {isDarkMode, fetchedLink} = props;
   const [links, setLinks] = useState([]);
-  const backgroundColor = isDarkMode ? '#333' : '#FFF';
-  const textColor = isDarkMode ? '#FFF' : '#333';
+  const backgroundColor = '#FFF';
+  const textColor = '#333';
 
   const updateLinkList = async (newLink) => {
     try {
-      console.log('newLink: ', newLink);
-      if (!newLink.link) return;
+      console.log('newLink[0]: ', newLink[0]);
+      if (!newLink[0].link) return;
       const storedLinks = await AsyncStorage.getItem('links');
       let parsedLinks = storedLinks ? JSON.parse(storedLinks) : [];
-      const updatedLinks = [...parsedLinks, newLink];
-      await AsyncStorage.setItem('links', JSON.stringify(updatedLinks));
+      const updatedLinks = [...parsedLinks, newLink[0]];
       console.log('updatedLinks: ', updatedLinks);
+      await AsyncStorage.setItem('links', JSON.stringify(updatedLinks));
       setLinks(updatedLinks);
     } catch (error) {
       console.error('Error saving links to storage:', error);
@@ -37,9 +37,10 @@ const LinkList = (props) => {
     };
   }, [fetchedLink]);
 
-  const handleClearAll = () => {
+  const handleClearAll = async () => {
     setLinks([]);
-    RNBootSplash.hide({ fade: true });
+    await AsyncStorage.removeItem('links');
+    await RNBootSplash.hide({ fade: true });
   };
 
   const handleGoBack = () => {
@@ -48,16 +49,19 @@ const LinkList = (props) => {
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
-      <FlatList
-        data={links}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.linkContainer}>
-            <Text style={[styles.title, {color: textColor}]}>Title: {item.title}</Text>
-            <Text sstyle={[styles.link, {color: textColor}]}>Link: {item.link}</Text>
-          </View>
-        )}
-      />
+      <Text style={[styles.title, {color: textColor}]}>!!!! naflsdjalsdf lkj!!!</Text>
+        <ScrollView>
+          <FlatList
+            data={links}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View style={styles.linkContainer}>
+                <Text style={[styles.title, {color: textColor}]}>Title: {item.title}</Text>
+                <Text sstyle={[styles.link, {color: textColor}]}>Link: {item.link}</Text>
+              </View>
+            )}
+          />
+        </ScrollView>
       <View style={GlobalStyles.buttonsContainer}>
           <TouchableOpacity style={GlobalStyles.cancelButton} onPress={handleClearAll}>
             <Text style={GlobalStyles.buttonText}>Clear All</Text>
