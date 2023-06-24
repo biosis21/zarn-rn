@@ -1,118 +1,81 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
+  Dimensions,
   SafeAreaView,
-  ScrollView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
-  View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import ShareMenu from 'react-native-share-menu';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import LinkList from './src/screens/link-list';
+import GlobalStyles from './src/styles/global-styles';
+// @ts-ignore
+import LinkPreview from 'react-native-link-preview';
 
-function Section({children, title}: SectionProps): JSX.Element {
+const fetchPageTitle = async (url: any) => {
+  try {
+    const preview = LinkPreview.getPreview(url);
+
+    console.log('preview:', preview);
+
+    console.log('Page Title:', preview.title);
+
+    return preview.title || 'No title';
+  } catch (error) {
+    console.error('Error fetching page title:', error);
+  }
+};
+
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  const height = Dimensions.get('window').height;
+  const [sharedData, setSharedData] = React.useState({});
+
+  const handleShare = React.useCallback(async (item?: any) => {
+    if (!item) return;
+    try {
+      const newData = await Promise.all(
+        item.data.map(async (dataItem: {data: any}) => {
+          const fullUrl = dataItem.data;
+          const linkMatch = fullUrl.match(/(https?:\/\/[^?]+)\?client/);
+          const link = linkMatch && linkMatch[1] ? linkMatch[1] : fullUrl;
+          const title = await fetchPageTitle(link);
+          return {
+            ...dataItem,
+            link,
+            title,
+          };
+        }),
+      );
+
+      console.log('newData: ', newData);
+      setSharedData(newData);
+    } catch (error) {
+      console.error('Error in handleShare:', error);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    const listener = ShareMenu.addNewShareListener(handleShare);
+
+    return () => {
+      listener.remove();
+    };
+  }, [handleShare]);
+
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+    <SafeAreaView
+      style={[
+        GlobalStyles.appStyle,
+        {
+          height,
+        },
+      ]}>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <LinkList isDarkMode={isDarkMode} fetchedLink={sharedData} />
     </SafeAreaView>
   );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+};
 
 export default App;

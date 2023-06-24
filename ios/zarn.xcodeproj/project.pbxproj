@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* zarnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* zarnTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-zarn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-zarn.a */; };
+		077FB4C539FA86C4A3528114 /* libPods-zarn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8F9CDD490B360FC4DD1C2C /* libPods-zarn.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-zarn-zarnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-zarn-zarnTests.a */; };
+		2C64C5AE2A4483C600F9D9AC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C64C5AC2A4483C600F9D9AC /* MainInterface.storyboard */; };
+		2C64C5B22A4483C600F9D9AC /* zarn_share.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2C64C5A82A4483C500F9D9AC /* zarn_share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2CFE25B82A46C17800D1856F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE25B72A46C17800D1856F /* ShareViewController.swift */; };
+		4687A5A4881F6A1B39F81154 /* libPods-zarn_share.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A7E64C7EA1BAA85059D5CC /* libPods-zarn_share.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9AEF902F567D460CE4D58A21 /* libPods-zarn-zarnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 250ACD3FDA49FFA9EADCF32A /* libPods-zarn-zarnTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +28,31 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = zarn;
 		};
+		2C64C5B02A4483C600F9D9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C64C5A72A4483C500F9D9AC;
+			remoteInfo = zarn_share;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2C64C5B32A4483C600F9D9AC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2C64C5B22A4483C600F9D9AC /* zarn_share.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0044BFF8E105CDC3C73CFEEE /* Pods-zarn-zarnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn-zarnTests.debug.xcconfig"; path = "Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests.debug.xcconfig"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* zarnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zarnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* zarnTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zarnTests.m; sourceTree = "<group>"; };
@@ -36,13 +62,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = zarn/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = zarn/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = zarn/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-zarn-zarnTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zarn-zarnTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-zarn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn.debug.xcconfig"; path = "Target Support Files/Pods-zarn/Pods-zarn.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-zarn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn.release.xcconfig"; path = "Target Support Files/Pods-zarn/Pods-zarn.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-zarn-zarnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn-zarnTests.debug.xcconfig"; path = "Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-zarn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zarn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		250ACD3FDA49FFA9EADCF32A /* libPods-zarn-zarnTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zarn-zarnTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B8F9CDD490B360FC4DD1C2C /* libPods-zarn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zarn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C64C5A82A4483C500F9D9AC /* zarn_share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = zarn_share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C64C5AD2A4483C600F9D9AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2C64C5AF2A4483C600F9D9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C64C5B92A448B1400F9D9AC /* zarn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = zarn.entitlements; path = zarn/zarn.entitlements; sourceTree = "<group>"; };
+		2C64C5BA2A448BFF00F9D9AC /* zarn_share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zarn_share.entitlements; sourceTree = "<group>"; };
+		2CFE25B62A46C17700D1856F /* zarn_share-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zarn_share-Bridging-Header.h"; sourceTree = "<group>"; };
+		2CFE25B72A46C17800D1856F /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = "../../node_modules/react-native-share-menu/ios/ShareViewController.swift"; sourceTree = "<group>"; };
+		38A79AA8BBFFD95BF201D1AE /* Pods-zarn-zarnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn-zarnTests.release.xcconfig"; path = "Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests.release.xcconfig"; sourceTree = "<group>"; };
+		49A7E64C7EA1BAA85059D5CC /* libPods-zarn_share.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zarn_share.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EEAB40B7A5CB2D676ACB0B4 /* Pods-zarn_share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn_share.debug.xcconfig"; path = "Target Support Files/Pods-zarn_share/Pods-zarn_share.debug.xcconfig"; sourceTree = "<group>"; };
+		7BEA1C9C62FFC2BD755AAA33 /* Pods-zarn_share.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn_share.release.xcconfig"; path = "Target Support Files/Pods-zarn_share/Pods-zarn_share.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = zarn/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-zarn-zarnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn-zarnTests.release.xcconfig"; path = "Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC7330B2A683FE2F6E78AA1F /* Pods-zarn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn.debug.xcconfig"; path = "Target Support Files/Pods-zarn/Pods-zarn.debug.xcconfig"; sourceTree = "<group>"; };
+		BB04B28922FB5305C0EEC674 /* Pods-zarn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn.release.xcconfig"; path = "Target Support Files/Pods-zarn/Pods-zarn.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-zarn-zarnTests.a in Frameworks */,
+				9AEF902F567D460CE4D58A21 /* libPods-zarn-zarnTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +94,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-zarn.a in Frameworks */,
+				077FB4C539FA86C4A3528114 /* libPods-zarn.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C64C5A52A4483C500F9D9AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4687A5A4881F6A1B39F81154 /* libPods-zarn_share.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +129,7 @@
 		13B07FAE1A68108700A75B9A /* zarn */ = {
 			isa = PBXGroup;
 			children = (
+				2C64C5B92A448B1400F9D9AC /* zarn.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -96,12 +140,25 @@
 			name = zarn;
 			sourceTree = "<group>";
 		};
+		2C64C5A92A4483C600F9D9AC /* zarn_share */ = {
+			isa = PBXGroup;
+			children = (
+				2CFE25B72A46C17800D1856F /* ShareViewController.swift */,
+				2C64C5BA2A448BFF00F9D9AC /* zarn_share.entitlements */,
+				2C64C5AC2A4483C600F9D9AC /* MainInterface.storyboard */,
+				2C64C5AF2A4483C600F9D9AC /* Info.plist */,
+				2CFE25B62A46C17700D1856F /* zarn_share-Bridging-Header.h */,
+			);
+			path = zarn_share;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-zarn.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-zarn-zarnTests.a */,
+				2B8F9CDD490B360FC4DD1C2C /* libPods-zarn.a */,
+				250ACD3FDA49FFA9EADCF32A /* libPods-zarn-zarnTests.a */,
+				49A7E64C7EA1BAA85059D5CC /* libPods-zarn_share.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,6 +176,7 @@
 				13B07FAE1A68108700A75B9A /* zarn */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* zarnTests */,
+				2C64C5A92A4483C600F9D9AC /* zarn_share */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -133,6 +191,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* zarn.app */,
 				00E356EE1AD99517003FC87E /* zarnTests.xctest */,
+				2C64C5A82A4483C500F9D9AC /* zarn_share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,10 +199,12 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-zarn.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-zarn.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-zarn-zarnTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-zarn-zarnTests.release.xcconfig */,
+				AC7330B2A683FE2F6E78AA1F /* Pods-zarn.debug.xcconfig */,
+				BB04B28922FB5305C0EEC674 /* Pods-zarn.release.xcconfig */,
+				0044BFF8E105CDC3C73CFEEE /* Pods-zarn-zarnTests.debug.xcconfig */,
+				38A79AA8BBFFD95BF201D1AE /* Pods-zarn-zarnTests.release.xcconfig */,
+				6EEAB40B7A5CB2D676ACB0B4 /* Pods-zarn_share.debug.xcconfig */,
+				7BEA1C9C62FFC2BD755AAA33 /* Pods-zarn_share.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -155,12 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "zarnTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				BB31868EA0834D901909B24F /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				00B55369D54981CBE6BED748 /* [CP] Embed Pods Frameworks */,
+				E2FCADE054C1DC98B5DB0A7C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,23 +237,44 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "zarn" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				5E278DA9D5A6A7D658E6CE12 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				2C64C5B32A4483C600F9D9AC /* Embed Foundation Extensions */,
+				EEE96F15DF23306E728BC6BA /* [CP] Embed Pods Frameworks */,
+				B721645386036CDC93CEB978 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2C64C5B12A4483C600F9D9AC /* PBXTargetDependency */,
 			);
 			name = zarn;
 			productName = zarn;
 			productReference = 13B07F961A680F5B00A75B9A /* zarn.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2C64C5A72A4483C500F9D9AC /* zarn_share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C64C5B62A4483C600F9D9AC /* Build configuration list for PBXNativeTarget "zarn_share" */;
+			buildPhases = (
+				BA4488EE15E47D59F58BDBFF /* [CP] Check Pods Manifest.lock */,
+				2C64C5A42A4483C500F9D9AC /* Sources */,
+				2C64C5A52A4483C500F9D9AC /* Frameworks */,
+				2C64C5A62A4483C500F9D9AC /* Resources */,
+				F1891A90D8ED8768039D9844 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = zarn_share;
+			productName = zarn_share;
+			productReference = 2C64C5A82A4483C500F9D9AC /* zarn_share.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -200,6 +282,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -208,6 +291,10 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					2C64C5A72A4483C500F9D9AC = {
+						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -226,6 +313,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* zarn */,
 				00E356ED1AD99517003FC87E /* zarnTests */,
+				2C64C5A72A4483C500F9D9AC /* zarn_share */,
 			);
 		};
 /* End PBXProject section */
@@ -247,9 +335,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2C64C5A62A4483C500F9D9AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C64C5AE2A4483C600F9D9AC /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		00B55369D54981CBE6BED748 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,46 +379,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-zarn/Pods-zarn-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-zarn/Pods-zarn-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-zarn/Pods-zarn-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-zarn-zarnTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		5E278DA9D5A6A7D658E6CE12 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -327,24 +401,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+		B721645386036CDC93CEB978 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,7 +418,51 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-zarn/Pods-zarn-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
+		BA4488EE15E47D59F58BDBFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-zarn_share-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB31868EA0834D901909B24F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-zarn-zarnTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2FCADE054C1DC98B5DB0A7C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,6 +477,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEE96F15DF23306E728BC6BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-zarn/Pods-zarn-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-zarn/Pods-zarn-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-zarn/Pods-zarn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1891A90D8ED8768039D9844 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-zarn_share/Pods-zarn_share-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-zarn_share/Pods-zarn_share-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-zarn_share/Pods-zarn_share-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -417,6 +552,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2C64C5A42A4483C500F9D9AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CFE25B82A46C17800D1856F /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -425,12 +568,28 @@
 			target = 13B07F861A680F5B00A75B9A /* zarn */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
+		2C64C5B12A4483C600F9D9AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C64C5A72A4483C500F9D9AC /* zarn_share */;
+			targetProxy = 2C64C5B02A4483C600F9D9AC /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2C64C5AC2A4483C600F9D9AC /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C64C5AD2A4483C600F9D9AC /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-zarn-zarnTests.debug.xcconfig */;
+			baseConfigurationReference = 0044BFF8E105CDC3C73CFEEE /* Pods-zarn-zarnTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -457,7 +616,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-zarn-zarnTests.release.xcconfig */;
+			baseConfigurationReference = 38A79AA8BBFFD95BF201D1AE /* Pods-zarn-zarnTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -481,13 +640,17 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-zarn.debug.xcconfig */;
+			baseConfigurationReference = AC7330B2A683FE2F6E78AA1F /* Pods-zarn.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = zarn/zarn.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F32C86TQJW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = zarn/Info.plist;
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,12 +671,16 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-zarn.release.xcconfig */;
+			baseConfigurationReference = BB04B28922FB5305C0EEC674 /* Pods-zarn.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = zarn/zarn.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F32C86TQJW;
 				INFOPLIST_FILE = zarn/Info.plist;
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,6 +695,90 @@
 				PRODUCT_NAME = zarn;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		2C64C5B42A4483C600F9D9AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EEAB40B7A5CB2D676ACB0B4 /* Pods-zarn_share.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = zarn_share/zarn_share.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = F32C86TQJW;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = zarn_share/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = zarn_share;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.zarn.zarn-share";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "zarn_share/zarn_share-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2C64C5B52A4483C600F9D9AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BEA1C9C62FFC2BD755AAA33 /* Pods-zarn_share.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = zarn_share/zarn_share.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = F32C86TQJW;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = zarn_share/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = zarn_share;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.zarn.zarn-share";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "zarn_share/zarn_share-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -685,6 +936,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C64C5B62A4483C600F9D9AC /* Build configuration list for PBXNativeTarget "zarn_share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C64C5B42A4483C600F9D9AC /* Debug */,
+				2C64C5B52A4483C600F9D9AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

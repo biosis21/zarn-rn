@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
+#import <RNShareMenu/ShareMenuManager.h>
+#import "RNBootSplash.h"
 
 @implementation AppDelegate
 
@@ -28,9 +29,12 @@
 /// @see: https://reactjs.org/blog/2022/03/29/react-v18.html
 /// @note: This requires to be rendering on Fabric (i.e. on the New Architecture).
 /// @return: `true` if the `concurrentRoot` feature is enabled. Otherwise, it returns `false`.
-- (BOOL)concurrentRootEnabled
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-  return true;
+  return [ShareMenuManager application:app openURL:url options:options];
 }
 
 @end
+
