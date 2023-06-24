@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Dimensions,
-  Image,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -29,11 +28,11 @@ const App = () => {
   const height = Dimensions.get('window').height;
   const [sharedData, setSharedData] = React.useState('');
   const [sharedMimeType, setSharedMimeType] = React.useState('');
-  const [sharedExtraData, setSharedExtraData] = React.useState(null);
 
   const handleShare = React.useCallback((item?: any) => {
     console.log('item: ', item);
-    const {mimeType, data, extraData} = item;
+    console.log('item.data[0].data: ', item.data[0].data);
+    const {mimeType, data, extraData} = item.data[0];
 
     setSharedData(data);
     setSharedExtraData(extraData);
@@ -60,29 +59,12 @@ const App = () => {
       ]}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor="black"
+        // backgroundColor="black"
       />
       <Text style={styles.welcome}>React Native Share Menu</Text>
       <Text style={styles.instructions}>Shared type: {sharedMimeType}</Text>
       <Text style={styles.instructions}>
         Shared text: {sharedMimeType === 'text/plain' ? sharedData : ''}
-      </Text>
-      <Text style={styles.instructions}>Shared image:</Text>
-      {sharedMimeType.startsWith('image/') && (
-        <Image
-          style={styles.image}
-          source={{uri: sharedData}}
-          resizeMode="contain"
-        />
-      )}
-      <Text style={styles.instructions}>
-        Shared file:{' '}
-        {sharedMimeType !== 'text/plain' && !sharedMimeType.startsWith('image/')
-          ? sharedData
-          : ''}
-      </Text>
-      <Text style={styles.instructions}>
-        Extra data: {sharedExtraData ? JSON.stringify(sharedExtraData) : ''}
       </Text>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
