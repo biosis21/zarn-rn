@@ -2,34 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<key>CFBundleDisplayName</key>
+	<string>zarn</string>
 	<key>CFBundleExecutable</key>
 	<string>zarn</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string></string>
-	<key>CFBundleDisplayName</key>
-	<string>zarn</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.nerdLab.zarnShare</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>zarnShare</string>
 			</array>
-			<key>CFBundleURLName</key>
-			<string>com.nerdLab.zarnShare</string>
 		</dict>
 	</array>
-	<key>CFBundleGetInfoString</key>
-	<string></string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen.storyboard</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

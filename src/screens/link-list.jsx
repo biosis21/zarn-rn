@@ -23,7 +23,6 @@ const LinkList = (props) => {
       const storedLinks = await AsyncStorage.getItem('links');
       let parsedLinks = storedLinks ? JSON.parse(storedLinks) : [];
       const updatedLinks = [...parsedLinks, newLink[0]];
-      console.log('updatedLinks: ', updatedLinks);
       await AsyncStorage.setItem('links', JSON.stringify(updatedLinks));
       setLinks(updatedLinks);
     } catch (error) {
@@ -39,7 +38,7 @@ const LinkList = (props) => {
 
   const handleClearAll = async () => {
     setLinks([]);
-    await AsyncStorage.removeItem('links');
+    await AsyncStorage.setItem('links', JSON.stringify([]));
     await RNBootSplash.hide({ fade: true });
   };
 
@@ -49,7 +48,6 @@ const LinkList = (props) => {
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
-      <Text style={[styles.title, {color: textColor}]}>!!!! naflsdjalsdf lkj!!!</Text>
         <ScrollView>
           <FlatList
             data={links}

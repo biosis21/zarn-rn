@@ -39,7 +39,6 @@ const App = () => {
         item.data.map(async (dataItem: {data: any}) => {
           const fullUrl = dataItem.data;
           const linkMatch = fullUrl.match(/(https?:\/\/[^?]+)\?client/);
-          console.log('linkMatch: ', linkMatch);
           const link = linkMatch && linkMatch[1] ? linkMatch[1] : fullUrl;
           const title = await fetchPageTitle(link);
           return {
