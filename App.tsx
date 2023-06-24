@@ -3,40 +3,57 @@ import {
   Dimensions,
   SafeAreaView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
 } from 'react-native';
 
 import ShareMenu from 'react-native-share-menu';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-
-//import {Colors} from 'react-native/Libraries/NewAppScreen';
-import BottomSheet from './src/screens/bottom-sheet';
 import LinkList from './src/screens/link-list';
 import GlobalStyles from './src/styles/global-styles';
+// @ts-ignore
+import LinkPreview from 'react-native-link-preview';
 
-// type SharedItem = {
-//   mimeType: string;
-//   data: string;
-// };
+const fetchPageTitle = async (url: any) => {
+  try {
+    const preview = LinkPreview.getPreview(url);
+
+    console.log('preview:', preview);
+
+    console.log('Page Title:', preview.title);
+
+    return preview.title || 'No title';
+  } catch (error) {
+    console.error('Error fetching page title:', error);
+  }
+};
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const height = Dimensions.get('window').height;
-  const [sharedData, setSharedData] = React.useState('');
-  const [sharedMimeType, setSharedMimeType] = React.useState('');
+  const [sharedData, setSharedData] = React.useState({});
 
-  const handleShare = React.useCallback((item?: any) => {
-    console.log('item: ', item);
-    console.log('item.data[0].data: ', item.data[0].data);
-    const {mimeType, data, extraData} = item.data[0];
+  const handleShare = React.useCallback(async (item?: any) => {
+    if (!item) return;
+    try {
+      const newData = await Promise.all(
+        item.data.map(async (dataItem: {data: any}) => {
+          const fullUrl = dataItem.data;
+          const linkMatch = fullUrl.match(/(https?:\/\/[^?#]+)/);
+          const link = linkMatch ? linkMatch[1] : fullUrl;
+          const title = await fetchPageTitle(link);
+          return {
+            ...dataItem,
+            link,
+            title,
+          };
+        }),
+      );
 
-    setSharedData(data);
-    setSharedExtraData(extraData);
-    setSharedMimeType(mimeType);
+      console.log('newData: ', newData);
+      setSharedData(newData);
+    } catch (error) {
+      console.error('Error in handleShare:', error);
+    }
   }, []);
 
   React.useEffect(() => {
@@ -47,8 +64,6 @@ const App = () => {
     };
   }, [handleShare]);
 
-  const Stack = createStackNavigator();
-
   return (
     <SafeAreaView
       style={[
@@ -57,60 +72,10 @@ const App = () => {
           height,
         },
       ]}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        // backgroundColor="black"
-      />
-      <Text style={styles.welcome}>React Native Share Menu</Text>
-      <Text style={styles.instructions}>Shared type: {sharedMimeType}</Text>
-      <Text style={styles.instructions}>
-        Shared text: {sharedMimeType === 'text/plain' ? sharedData : ''}
-      </Text>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home"
-            options={{headerShown: false}}
-            children={props => (
-              <BottomSheet
-                {...props}
-                isDarkMode={isDarkMode}
-                screenHeight={height}
-              />
-            )}
-          />
-          <Stack.Screen
-            name="Links"
-            options={{headerShown: false}}
-            children={props => <LinkList {...props} isDarkMode={isDarkMode} />}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <LinkList isDarkMode={isDarkMode} fetchedLink={sharedData} />
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  image: {
-    width: '100%',
-    height: 200,
-  },
-});
 
 export default App;

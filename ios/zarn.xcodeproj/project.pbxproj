@@ -14,7 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2C64C5AE2A4483C600F9D9AC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C64C5AC2A4483C600F9D9AC /* MainInterface.storyboard */; };
 		2C64C5B22A4483C600F9D9AC /* zarn_share.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2C64C5A82A4483C500F9D9AC /* zarn_share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2C64C5B82A44858B00F9D9AC /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64C5B72A44858B00F9D9AC /* ShareViewController.swift */; };
+		2CFE25B82A46C17800D1856F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE25B72A46C17800D1856F /* ShareViewController.swift */; };
 		4687A5A4881F6A1B39F81154 /* libPods-zarn_share.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A7E64C7EA1BAA85059D5CC /* libPods-zarn_share.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9AEF902F567D460CE4D58A21 /* libPods-zarn-zarnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 250ACD3FDA49FFA9EADCF32A /* libPods-zarn-zarnTests.a */; };
@@ -67,9 +67,10 @@
 		2C64C5A82A4483C500F9D9AC /* zarn_share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = zarn_share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C64C5AD2A4483C600F9D9AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2C64C5AF2A4483C600F9D9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C64C5B72A44858B00F9D9AC /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = "../../node_modules/react-native-share-menu/ios/ShareViewController.swift"; sourceTree = "<group>"; };
 		2C64C5B92A448B1400F9D9AC /* zarn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = zarn.entitlements; path = zarn/zarn.entitlements; sourceTree = "<group>"; };
 		2C64C5BA2A448BFF00F9D9AC /* zarn_share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zarn_share.entitlements; sourceTree = "<group>"; };
+		2CFE25B62A46C17700D1856F /* zarn_share-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zarn_share-Bridging-Header.h"; sourceTree = "<group>"; };
+		2CFE25B72A46C17800D1856F /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = "../../node_modules/react-native-share-menu/ios/ShareViewController.swift"; sourceTree = "<group>"; };
 		38A79AA8BBFFD95BF201D1AE /* Pods-zarn-zarnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn-zarnTests.release.xcconfig"; path = "Target Support Files/Pods-zarn-zarnTests/Pods-zarn-zarnTests.release.xcconfig"; sourceTree = "<group>"; };
 		49A7E64C7EA1BAA85059D5CC /* libPods-zarn_share.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zarn_share.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEAB40B7A5CB2D676ACB0B4 /* Pods-zarn_share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zarn_share.debug.xcconfig"; path = "Target Support Files/Pods-zarn_share/Pods-zarn_share.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,10 +143,11 @@
 		2C64C5A92A4483C600F9D9AC /* zarn_share */ = {
 			isa = PBXGroup;
 			children = (
+				2CFE25B72A46C17800D1856F /* ShareViewController.swift */,
 				2C64C5BA2A448BFF00F9D9AC /* zarn_share.entitlements */,
-				2C64C5B72A44858B00F9D9AC /* ShareViewController.swift */,
 				2C64C5AC2A4483C600F9D9AC /* MainInterface.storyboard */,
 				2C64C5AF2A4483C600F9D9AC /* Info.plist */,
+				2CFE25B62A46C17700D1856F /* zarn_share-Bridging-Header.h */,
 			);
 			path = zarn_share;
 			sourceTree = "<group>";
@@ -554,7 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C64C5B82A44858B00F9D9AC /* ShareViewController.swift in Sources */,
+				2CFE25B82A46C17800D1856F /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +733,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "zarn_share/zarn_share-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -772,6 +775,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "zarn_share/zarn_share-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

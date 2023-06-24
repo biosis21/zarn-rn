@@ -8,18 +8,23 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalStyles from "../styles/global-styles";
+import RNBootSplash from "react-native-bootsplash";
 
-const LinkList = ({ route, navigation, isDarkMode }) => {
+const LinkList = (props) => {
+  const {isDarkMode, fetchedLink} = props;
   const [links, setLinks] = useState([]);
   const backgroundColor = isDarkMode ? '#333' : '#FFF';
   const textColor = isDarkMode ? '#FFF' : '#333';
 
   const updateLinkList = async (newLink) => {
     try {
+      console.log('newLink: ', newLink);
+      if (!newLink.link) return;
       const storedLinks = await AsyncStorage.getItem('links');
       let parsedLinks = storedLinks ? JSON.parse(storedLinks) : [];
       const updatedLinks = [...parsedLinks, newLink];
       await AsyncStorage.setItem('links', JSON.stringify(updatedLinks));
+      console.log('updatedLinks: ', updatedLinks);
       setLinks(updatedLinks);
     } catch (error) {
       console.error('Error saving links to storage:', error);
@@ -27,18 +32,18 @@ const LinkList = ({ route, navigation, isDarkMode }) => {
   }
 
   React.useEffect(() => {
-    if (route.params?.newLink) {
-      updateLinkList(route.params?.newLink);
+    if (fetchedLink) {
+      updateLinkList(fetchedLink);
     };
-  }, [route.params?.newLink]);
+  }, [fetchedLink]);
 
   const handleClearAll = () => {
     setLinks([]);
-    AsyncStorage.removeItem('links');
+    RNBootSplash.hide({ fade: true });
   };
 
   const handleGoBack = () => {
-    navigation.goBack();
+    RNBootSplash.hide({ fade: true });
   };
 
   return (
