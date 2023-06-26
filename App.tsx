@@ -35,6 +35,10 @@ const App = () => {
   const handleShare = React.useCallback(async (item?: any) => {
     if (!item) return;
     try {
+      console.log('item: ', item);
+      console.log('item.mimeType: ', item.mimeType);
+
+      console.log('item.mimeType: ', item.mimeType);
       const newData = await Promise.all(
         item.data.map(async (dataItem: {data: any}) => {
           const fullUrl = dataItem.data;

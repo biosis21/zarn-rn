@@ -4,7 +4,7 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  FlatList, ScrollView,
+  FlatList,
 } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalStyles from "../styles/global-styles";
@@ -19,7 +19,7 @@ const LinkList = (props) => {
   const updateLinkList = async (newLink) => {
     try {
       console.log('newLink[0]: ', newLink[0]);
-      if (!newLink[0].link) return;
+      if (!newLink[0] || !newLink[0].link) return;
       const storedLinks = await AsyncStorage.getItem('links');
       let parsedLinks = storedLinks ? JSON.parse(storedLinks) : [];
       const updatedLinks = [...parsedLinks, newLink[0]];
@@ -48,7 +48,6 @@ const LinkList = (props) => {
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
-        <ScrollView>
           <FlatList
             data={links}
             keyExtractor={(item, index) => index.toString()}
@@ -59,7 +58,6 @@ const LinkList = (props) => {
               </View>
             )}
           />
-        </ScrollView>
       <View style={GlobalStyles.buttonsContainer}>
           <TouchableOpacity style={GlobalStyles.cancelButton} onPress={handleClearAll}>
             <Text style={GlobalStyles.buttonText}>Clear All</Text>
