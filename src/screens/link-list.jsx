@@ -16,10 +16,6 @@ const LinkList = (props) => {
   const [links, setLinks] = useState([]);
   const backgroundColor = '#FFF';
   const textColor = '#333';
-  const handleGoBack = () => {
-    console.log('close');
-    BackHandler.exitApp();
-  };
 
   const updateLinkList = async (newLink) => {
     try {
@@ -43,19 +39,9 @@ const LinkList = (props) => {
     };
   }, [fetchedLink]);
 
-  React.useEffect(() => {
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      handleGoBack
-    );
-
-    return () => backHandler.remove();
-  }, []);
-
-    const handleClearAll = async () => {
+   const handleClearAll = async () => {
       setLinks([]);
       await AsyncStorage.setItem('links', JSON.stringify([]));
-      handleGoBack();
     };
 
   return (
