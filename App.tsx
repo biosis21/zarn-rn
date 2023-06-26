@@ -17,10 +17,6 @@ const fetchPageTitle = async (url: any) => {
   try {
     const preview = await LinkPreview.getPreview(url);
 
-    console.log('preview:', preview);
-
-    console.log('Page Title:', preview.title);
-
     return preview.title || 'No title';
   } catch (error) {
     console.error('Error fetching page title:', error);
@@ -29,30 +25,30 @@ const fetchPageTitle = async (url: any) => {
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const height = Dimensions.get('window').height;
   const [sharedData, setSharedData] = React.useState({});
+  const height = Dimensions.get('window').height;
 
   const handleShare = React.useCallback(async (item?: any) => {
-    if (!item) return;
+    console.log('item: ', item);
+    // share only url:
+    if (!item || item.data[0].mimeType !== 'text/plain') {
+      return;
+    }
+
     try {
-      console.log('item: ', item);
-
-      const newData = await Promise.all(
-        item.data.map(async (dataItem: {data: any}) => {
-          const fullUrl = dataItem.data;
-          const linkMatch = fullUrl.match(/(https?:\/\/[^?]+)\?client/);
-          const link = linkMatch && linkMatch[1] ? linkMatch[1] : fullUrl;
-          const title = await fetchPageTitle(link);
-          return {
-            ...dataItem,
-            link,
-            title,
-          };
-        }),
-      );
-
-      console.log('newData: ', newData);
-      setSharedData(newData);
+      const addLinkAndTitleToSharedData = async () => {
+        const fullUrl = item.data[0].data;
+        const linkMatch = fullUrl.match(/(https?:\/\/[^?]+)\?client/);
+        const link = linkMatch && linkMatch[1] ? linkMatch[1] : fullUrl;
+        const title = await fetchPageTitle(item.data[0].data);
+        return {
+          ...item.data[0],
+          link,
+          title,
+        };
+      };
+      const newDataWithLinkAndTitle = await addLinkAndTitleToSharedData();
+      setSharedData(newDataWithLinkAndTitle);
     } catch (error) {
       console.error('Error in handleShare:', error);
     }

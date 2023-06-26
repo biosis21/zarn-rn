@@ -1,7 +1,6 @@
 #import "AppDelegate.h"
 #import <React/RCTBundleURLProvider.h>
 #import <RNShareMenu/ShareMenuManager.h>
-#import "RNBootSplash.h"
 
 @implementation AppDelegate
 

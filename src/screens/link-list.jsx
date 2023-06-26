@@ -5,28 +5,30 @@ import {
   TouchableOpacity,
   StyleSheet,
   FlatList,
+  BackHandler,
 } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalStyles from "../styles/global-styles";
-import RNBootSplash from "react-native-bootsplash";
+
 
 const LinkList = (props) => {
   const {isDarkMode, fetchedLink, height} = props;
   const [links, setLinks] = useState([]);
   const backgroundColor = '#FFF';
   const textColor = '#333';
+  const handleGoBack = () => {
+    console.log('close');
+  };
 
   const updateLinkList = async (newLink) => {
     try {
-      console.log('newLink: ', newLink);
       const storedLinks = await AsyncStorage.getItem('links');
       let parsedLinks = storedLinks ? JSON.parse(storedLinks) : [];
-      console.log('parsedLinks: ', parsedLinks);
-      if (!newLink[0] || !newLink[0].link) {
+      if (!newLink || !newLink.link) {
         setLinks(parsedLinks);
         return;
       }
-      const updatedLinks = [...parsedLinks, newLink[0]];
+      const updatedLinks = [...parsedLinks, newLink];
       await AsyncStorage.setItem('links', JSON.stringify(updatedLinks));
       setLinks(updatedLinks);
     } catch (error) {
@@ -40,15 +42,20 @@ const LinkList = (props) => {
     };
   }, [fetchedLink]);
 
-  const handleClearAll = async () => {
-    setLinks([]);
-    await AsyncStorage.setItem('links', JSON.stringify([]));
-    await RNBootSplash.hide({ fade: true });
-  };
+  React.useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      handleGoBack
+    );
 
-  const handleGoBack = () => {
-    RNBootSplash.hide({ fade: true });
-  };
+    return () => backHandler.remove();
+  }, []);
+
+    const handleClearAll = async () => {
+      setLinks([]);
+      await AsyncStorage.setItem('links', JSON.stringify([]));
+      handleGoBack();
+    };
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
