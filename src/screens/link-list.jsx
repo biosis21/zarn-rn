@@ -11,17 +11,21 @@ import GlobalStyles from "../styles/global-styles";
 import RNBootSplash from "react-native-bootsplash";
 
 const LinkList = (props) => {
-  const {isDarkMode, fetchedLink} = props;
+  const {isDarkMode, fetchedLink, height} = props;
   const [links, setLinks] = useState([]);
   const backgroundColor = '#FFF';
   const textColor = '#333';
 
   const updateLinkList = async (newLink) => {
     try {
-      console.log('newLink[0]: ', newLink[0]);
-      if (!newLink[0] || !newLink[0].link) return;
+      console.log('newLink: ', newLink);
       const storedLinks = await AsyncStorage.getItem('links');
       let parsedLinks = storedLinks ? JSON.parse(storedLinks) : [];
+      console.log('parsedLinks: ', parsedLinks);
+      if (!newLink[0] || !newLink[0].link) {
+        setLinks(parsedLinks);
+        return;
+      }
       const updatedLinks = [...parsedLinks, newLink[0]];
       await AsyncStorage.setItem('links', JSON.stringify(updatedLinks));
       setLinks(updatedLinks);
@@ -53,10 +57,15 @@ const LinkList = (props) => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <View style={styles.linkContainer}>
-                <Text style={[styles.title, {color: textColor}]}>Title: {item.title}</Text>
-                <Text sstyle={[styles.link, {color: textColor}]}>Link: {item.link}</Text>
+                <Text style={[styles.title, {color: textColor}]}>Title: {item?.title}</Text>
+                <Text sstyle={[styles.link, {color: textColor}]}>Link: {item?.link}</Text>
               </View>
             )}
+            ListEmptyComponent={
+              <View style={[GlobalStyles.emptyListComponent, {height: height * 0.8}]}>
+                <Text style={{color: textColor, fontSize: 24 }}>No links available</Text>
+              </View>
+            }
           />
       <View style={GlobalStyles.buttonsContainer}>
           <TouchableOpacity style={GlobalStyles.cancelButton} onPress={handleClearAll}>

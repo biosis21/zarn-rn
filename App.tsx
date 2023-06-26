@@ -15,7 +15,7 @@ import LinkPreview from 'react-native-link-preview';
 
 const fetchPageTitle = async (url: any) => {
   try {
-    const preview = LinkPreview.getPreview(url);
+    const preview = await LinkPreview.getPreview(url);
 
     console.log('preview:', preview);
 
@@ -36,9 +36,7 @@ const App = () => {
     if (!item) return;
     try {
       console.log('item: ', item);
-      console.log('item.mimeType: ', item.mimeType);
 
-      console.log('item.mimeType: ', item.mimeType);
       const newData = await Promise.all(
         item.data.map(async (dataItem: {data: any}) => {
           const fullUrl = dataItem.data;
@@ -77,7 +75,11 @@ const App = () => {
         },
       ]}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <LinkList isDarkMode={isDarkMode} fetchedLink={sharedData} />
+      <LinkList
+        isDarkMode={isDarkMode}
+        fetchedLink={sharedData}
+        height={height}
+      />
     </SafeAreaView>
   );
 };

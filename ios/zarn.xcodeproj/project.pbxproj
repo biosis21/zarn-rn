@@ -12,6 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2C0E17012A4999D100B29913 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2C64C5AE2A4483C600F9D9AC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C64C5AC2A4483C600F9D9AC /* MainInterface.storyboard */; };
 		2C64C5B22A4483C600F9D9AC /* zarn_share.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2C64C5A82A4483C500F9D9AC /* zarn_share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2CFE25B82A46C17800D1856F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE25B72A46C17800D1856F /* ShareViewController.swift */; };
@@ -556,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0E17012A4999D100B29913 /* Images.xcassets in Sources */,
 				2CFE25B82A46C17800D1856F /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,6 +717,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = zarn/Images.xcassets;
 				DEVELOPMENT_TEAM = F32C86TQJW;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -758,6 +761,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = zarn/Images.xcassets;
 				DEVELOPMENT_TEAM = F32C86TQJW;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
