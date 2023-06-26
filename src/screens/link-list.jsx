@@ -18,6 +18,7 @@ const LinkList = (props) => {
   const textColor = '#333';
   const handleGoBack = () => {
     console.log('close');
+    BackHandler.exitApp();
   };
 
   const updateLinkList = async (newLink) => {
@@ -77,9 +78,6 @@ const LinkList = (props) => {
       <View style={GlobalStyles.buttonsContainer}>
           <TouchableOpacity style={GlobalStyles.cancelButton} onPress={handleClearAll}>
             <Text style={GlobalStyles.buttonText}>Clear All</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={GlobalStyles.okButton} onPress={handleGoBack}>
-            <Text style={GlobalStyles.buttonText}>Back</Text>
           </TouchableOpacity>
         </View>
     </View>

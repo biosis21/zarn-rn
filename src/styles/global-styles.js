@@ -27,7 +27,7 @@ const GlobalStyles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   emptyListComponent: {
     flexDirection: 'row',
