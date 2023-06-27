@@ -12,6 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2C34A0A52A49C12F00E57F02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2C64C5AE2A4483C600F9D9AC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C64C5AC2A4483C600F9D9AC /* MainInterface.storyboard */; };
 		2C64C5B22A4483C600F9D9AC /* zarn_share.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2C64C5A82A4483C500F9D9AC /* zarn_share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2CFE25B82A46C17800D1856F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE25B72A46C17800D1856F /* ShareViewController.swift */; };
@@ -339,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C34A0A52A49C12F00E57F02 /* Images.xcassets in Resources */,
 				2C64C5AE2A4483C600F9D9AC /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,7 +645,8 @@
 			baseConfigurationReference = AC7330B2A683FE2F6E78AA1F /* Pods-zarn.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = zarn;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = zarn/zarn.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
@@ -674,7 +677,8 @@
 			baseConfigurationReference = BB04B28922FB5305C0EEC674 /* Pods-zarn.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = zarn;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = zarn/zarn.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
@@ -702,6 +706,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EEAB40B7A5CB2D676ACB0B4 /* Pods-zarn_share.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = zarn;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -713,7 +719,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = F32C86TQJW;
+				DSTROOT = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = zarn_share/Info.plist;
@@ -744,6 +752,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BEA1C9C62FFC2BD755AAA33 /* Pods-zarn_share.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = zarn;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -756,7 +766,9 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = F32C86TQJW;
+				DSTROOT = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = zarn_share/Info.plist;

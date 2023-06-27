@@ -4,25 +4,28 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  FlatList, ScrollView,
+  FlatList,
+  BackHandler,
 } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalStyles from "../styles/global-styles";
-import RNBootSplash from "react-native-bootsplash";
+
 
 const LinkList = (props) => {
-  const {isDarkMode, fetchedLink} = props;
+  const {isDarkMode, fetchedLink, height} = props;
   const [links, setLinks] = useState([]);
   const backgroundColor = '#FFF';
   const textColor = '#333';
 
   const updateLinkList = async (newLink) => {
     try {
-      console.log('newLink[0]: ', newLink[0]);
-      if (!newLink[0].link) return;
       const storedLinks = await AsyncStorage.getItem('links');
       let parsedLinks = storedLinks ? JSON.parse(storedLinks) : [];
-      const updatedLinks = [...parsedLinks, newLink[0]];
+      if (!newLink || !newLink.link) {
+        setLinks(parsedLinks);
+        return;
+      }
+      const updatedLinks = [...parsedLinks, newLink];
       await AsyncStorage.setItem('links', JSON.stringify(updatedLinks));
       setLinks(updatedLinks);
     } catch (error) {
@@ -36,36 +39,31 @@ const LinkList = (props) => {
     };
   }, [fetchedLink]);
 
-  const handleClearAll = async () => {
-    setLinks([]);
-    await AsyncStorage.setItem('links', JSON.stringify([]));
-    await RNBootSplash.hide({ fade: true });
-  };
-
-  const handleGoBack = () => {
-    RNBootSplash.hide({ fade: true });
-  };
+   const handleClearAll = async () => {
+      setLinks([]);
+      await AsyncStorage.setItem('links', JSON.stringify([]));
+    };
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
-        <ScrollView>
           <FlatList
             data={links}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <View style={styles.linkContainer}>
-                <Text style={[styles.title, {color: textColor}]}>Title: {item.title}</Text>
-                <Text sstyle={[styles.link, {color: textColor}]}>Link: {item.link}</Text>
+                <Text style={[styles.title, {color: textColor}]}>Title: {item?.title}</Text>
+                <Text sstyle={[styles.link, {color: textColor}]}>Link: {item?.link}</Text>
               </View>
             )}
+            ListEmptyComponent={
+              <View style={[GlobalStyles.emptyListComponent, {height: height * 0.8}]}>
+                <Text style={{color: textColor, fontSize: 24 }}>No links available</Text>
+              </View>
+            }
           />
-        </ScrollView>
       <View style={GlobalStyles.buttonsContainer}>
           <TouchableOpacity style={GlobalStyles.cancelButton} onPress={handleClearAll}>
             <Text style={GlobalStyles.buttonText}>Clear All</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={GlobalStyles.okButton} onPress={handleGoBack}>
-            <Text style={GlobalStyles.buttonText}>Back</Text>
           </TouchableOpacity>
         </View>
     </View>
