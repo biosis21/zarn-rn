@@ -29,7 +29,6 @@ const App = () => {
   const height = Dimensions.get('window').height;
 
   const handleShare = React.useCallback(async (item?: any) => {
-    console.log('item: ', item);
     // share only url:
     if (!item || item.data[0].mimeType !== 'text/plain') {
       return;
